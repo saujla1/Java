@@ -1,6 +1,6 @@
 package StepDefinitions;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -12,13 +12,13 @@ import io.cucumber.java.en.*;
 public class GoogleSearchSteps {
 	
 	WebDriver driver =null;
-	@SuppressWarnings("deprecation")
+
 	@Given("browser is open")
 	public void browser_is_open() {
 		String projectPath = System.getProperty("user.dir");
 		System.setProperty("webdriver.chrome.driver",projectPath+"/src/test/resources/drivers/chromedriver.exe");
 		driver = new ChromeDriver();
-//		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 //		driver.manage().window().maximize();
 	}
 	
@@ -46,6 +46,7 @@ public class GoogleSearchSteps {
 	public void use_is_navigated_to_search_results() {
 		driver.getPageSource().contains("Online Courses");
 		driver.close();
+		driver.quit();
 	}
 
 }
