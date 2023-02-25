@@ -21,7 +21,7 @@ public class LoginSteps {
 		System.out.println("Inside And step");
 	}
 
-//	@Then("user is navigated to home page")
+	@Then("user is navigated to home page")
 	public void user_is_navigated_to_home_page() {
 		// Write code here that turns the phrase above into concrete actions
 		System.out.println("Inside Then step");
